@@ -51,6 +51,7 @@
   flex-direction: column;
   gap: 8px;
   font-size: 12px;
+  flex-grow: 1;
 }
 
 .react-flow__handle.base-node-handle {
@@ -96,6 +97,77 @@
 
 .base-node .node-input:focus,
 .base-node .node-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+  background-color: #FFF;
+}
+
+.base-node-delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  line-height: 1;
+  z-index: 10;
+}
+
+.base-node-delete-btn:hover {
+  color: #D9383A !important;
+  background-color: rgba(217, 56, 58, 0.08);
+}
+
+.base-node-handle-label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.base-node-handle-label-input {
+  right: calc(100% + 8px);
+  text-align: right;
+}
+
+.base-node-handle-label-output {
+  left: calc(100% + 8px);
+  text-align: left;
+}
+
+.base-node .node-textarea {
+  resize: none;
+  width: 100%;
+  background-color: #FAF8F5;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-text);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+  min-height: 40px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.base-node .node-textarea:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 1px var(--color-accent);
   background-color: #FFF;

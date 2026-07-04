@@ -1,5 +1,6 @@
 import React from 'react';
 import { Handle, Position } from 'reactflow';
+import { useStore } from '../store';
 import '../styles/BaseNode.css';
 
 export const BaseNode = ({
@@ -14,6 +15,13 @@ export const BaseNode = ({
   height,
   style = {},
 }) => {
+  const deleteNode = useStore((state) => state.deleteNode);
+
+  const handleDelete = (e) => {
+    e.stopPropagation();
+    deleteNode(id);
+  };
+
   const nodeStyle = {
     width: width !== undefined ? width : undefined,
     minWidth: minWidth !== undefined ? minWidth : undefined,
@@ -23,6 +31,10 @@ export const BaseNode = ({
 
   return (
     <div className="base-node" style={nodeStyle}>
+      <button className="base-node-delete-btn" onClick={handleDelete}>
+        &times;
+      </button>
+
       {inputs.map((input, index) => {
         const topPercent = inputs.length > 0 
           ? `${((index + 1) * 100) / (inputs.length + 1)}%`
@@ -40,6 +52,22 @@ export const BaseNode = ({
         );
       })}
 
+      {inputs.map((input, index) => {
+        if (!input.label) return null;
+        const topPercent = inputs.length > 0 
+          ? `${((index + 1) * 100) / (inputs.length + 1)}%`
+          : '50%';
+        return (
+          <div
+            key={`label-input-${input.id}`}
+            className="base-node-handle-label base-node-handle-label-input"
+            style={{ top: topPercent }}
+          >
+            {input.label}
+          </div>
+        );
+      })}
+
       {outputs.map((output, index) => {
         const topPercent = outputs.length > 0 
           ? `${((index + 1) * 100) / (outputs.length + 1)}%`
@@ -54,6 +82,22 @@ export const BaseNode = ({
             className="base-node-handle base-node-handle-output"
             title={output.label}
           />
+        );
+      })}
+
+      {outputs.map((output, index) => {
+        if (!output.label) return null;
+        const topPercent = outputs.length > 0 
+          ? `${((index + 1) * 100) / (outputs.length + 1)}%`
+          : '50%';
+        return (
+          <div
+            key={`label-output-${output.id}`}
+            className="base-node-handle-label base-node-handle-label-output"
+            style={{ top: topPercent }}
+          >
+            {output.label}
+          </div>
         );
       })}
 
