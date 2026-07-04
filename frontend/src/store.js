@@ -64,4 +64,8 @@ export const useStore = create((set, get) => ({
         ),
       });
     },
+    submitResult: null,
+    setSubmitResult: (result) => set({ submitResult: result }),
+    clearSubmitResult: () => set({ submitResult: null }),
   }));
+

@@ -86,3 +86,39 @@ code {
   stroke: var(--color-accent) !important;
   stroke-width: 2.5px !important;
 }
+
+/* Submit button styling */
+.submit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0 32px 0;
+  background-color: var(--color-bg);
+}
+
+.submit-btn {
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  color: var(--color-bg); /* warm cream light text */
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(156, 139, 94, 0.25);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
