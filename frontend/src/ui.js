@@ -6,10 +6,17 @@ import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/inputNode';
-import { LLMNode } from './nodes/llmNode';
-import { OutputNode } from './nodes/outputNode';
-import { TextNode } from './nodes/textNode';
+import {
+  InputNode,
+  LLMNode,
+  OutputNode,
+  TextNode,
+  MathNode,
+  ConstantNode,
+  FilterNode,
+  TimerNode,
+  ConditionalNode
+} from './nodes';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +27,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  math: MathNode,
+  constant: ConstantNode,
+  filter: FilterNode,
+  timer: TimerNode,
+  conditional: ConditionalNode,
 };
 
 const selector = (state) => ({
@@ -90,7 +102,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="pipeline-canvas-wrapper">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -105,7 +117,7 @@ export const PipelineUI = () => {
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
             >
-                <Background color="#aaa" gap={gridSize} />
+                <Background color="#E8E2D4" gap={gridSize} size={1.5} />
                 <Controls />
                 <MiniMap />
             </ReactFlow>
