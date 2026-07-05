@@ -37,7 +37,7 @@ export const OutputNode = ({ id, data }) => {
           Type
           <select value={outputType} onChange={handleTypeChange} className="node-select">
             <option value="Text">Text</option>
-            <option value="File">Image</option>
+            <option value="Image">Image</option>
           </select>
         </label>
       </div>
