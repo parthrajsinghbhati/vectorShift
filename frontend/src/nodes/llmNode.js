@@ -15,7 +15,7 @@ export const LLMNode = ({ id, data }) => {
       ]}
       width={200}
     >
-      <div className="node-description" style={{ color: 'var(--color-text-muted)', fontSize: '12px', fontStyle: 'italic', margin: '4px 0' }}>
+      <div className="node-description">
         This is a LLM.
       </div>
     </BaseNode>

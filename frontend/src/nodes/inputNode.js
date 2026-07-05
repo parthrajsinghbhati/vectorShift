@@ -3,7 +3,7 @@ import { BaseNode } from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
-  const [inputType, setInputType] = useState(data.inputType || 'Text');
+  const [inputType, setInputType] = useState(data?.inputType || 'Text');
 
   const handleNameChange = (e) => {
     setCurrName(e.target.value);

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Handle, Position } from 'reactflow';
 import { useStore } from '../store';
 import '../styles/BaseNode.css';
@@ -46,7 +45,7 @@ export const BaseNode = ({
             position={Position.Left}
             id={input.id}
             style={{ top: topPercent }}
-            className="base-node-handle base-node-handle-input"
+            className="base-node-handle"
             title={input.label}
           />
         );
@@ -79,7 +78,7 @@ export const BaseNode = ({
             position={Position.Right}
             id={output.id}
             style={{ top: topPercent }}
-            className="base-node-handle base-node-handle-output"
+            className="base-node-handle"
             title={output.label}
           />
         );

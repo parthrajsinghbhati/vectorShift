@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import '../styles/ResultPanel.css';
 
 export const ResultPanel = ({ result, onClose }) => {
